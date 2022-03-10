@@ -3,20 +3,20 @@
 # Perform a zone transfer without domain
 dig axfr @<server_IP>
 
-#Try zone transfer guessing the domain
+# Try zone transfer guessing the domain
 dig axfr @<server_IP> <DOMAIN>
 
-#Any information
+# Any information
 dig ANY @<serve_IPr> <DOMAIN>
 
-#Reverse lookup
+# Reverse lookup
 dig -x <IP> @<server_IP>   
 
-#nslookup a domain
+# nslookup a domain
 nslookup <domain> <server_IP>
 
-#Perform enumeration actions with nmap
+# Perform enumeration actions with nmap
 nmap -n --script "(default and *dns*) or fcrdns or dns-srv-enum or dns-random-txid or dns-random-srcport" <IP>
 
-#Subdomains brute force
+# Subdomains brute force
 dnsrecon -D <subdomain_word_list> -d <DOMAIN> -n <server_IP>

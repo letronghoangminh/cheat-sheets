@@ -1,2 +1,2 @@
 # cheat-sheets
-Every commands i usually run
+Storing my mainly used commands (mostly Hacktricks ones)

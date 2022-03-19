@@ -1,0 +1,25 @@
+% directory, bruteforce
+
+# Dir brute with gobuster 
+gobuster dir -u '<URL>' -w <WORDLIST>-t 50 -k -b 400,404 -x php,html,txt,zip\
+
+# Dir brute with dirsearch
+dirsearch -u <URL> -e php,zip,txt,bak,rar,asp,aspx,html
+
+# Brute forcing with ffuf template
+ffuf -u '<URL>' -H "Put header here" -w <WORDLIST>
+
+# Vhost brute with gobuster
+gobuster vhost -u <URL> -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50
+
+# Vhost brute with ffuf
+ffuf -u 'http://<DOMAIN>' -H "Host: FUZZ.<DOMAIN>" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt 
+
+# Nikto scanning
+nikto -h <URL>
+
+# Web Dav test
+davtest [-auth user:password] -sendbd auto -url <URL>
+
+# wpscan enum
+wpscan --url <URL> -e ap <URL>-plugins-detection aggressive --plugins-version-detection aggressive

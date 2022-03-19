@@ -1,0 +1,8 @@
+% tunnel, port forwarding
+
+# Chisel server
+./chisel server -p <PORT> --reverse
+
+# Chisel client
+.\chisel.exe client <SERVER>:<SERVER_PORT> R:<SERVER_FORWARD_PORT>:127.0.0.1:<LOCAL_FORWARD_PORT> 
+

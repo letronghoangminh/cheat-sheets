@@ -23,3 +23,6 @@ davtest [-auth user:password] -sendbd auto -url <URL>
 
 # wpscan enum
 wpscan --url <URL> -e ap <URL>-plugins-detection aggressive --plugins-version-detection aggressive
+
+# Making wordlist with cewl
+cewl --with-numbers -e -a <URL> > wordlist.txt

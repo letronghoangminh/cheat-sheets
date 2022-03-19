@@ -6,4 +6,4 @@ Storing my mainly used commands (mostly Hacktricks ones)
 - Install navi `brew install navi`
 - Add this repo `navi repo add letronghoangminh/cheat-sheets`
 - Run `navi`
-- Optional `echo 'eval "$(navi widget zsh)"' > ~/.zshrc` and run with Ctrl+G
+- Optional `echo 'eval "$(navi widget zsh)"' >> ~/.zshrc; source ~/.zshrc` and run with Ctrl+G

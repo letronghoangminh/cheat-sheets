@@ -8,5 +8,5 @@ Storing my mainly used commands (mostly Hacktricks ones)
 - Run `navi`
 - Optional `echo 'eval "$(navi widget zsh)"' >> ~/.zshrc; source ~/.zshrc` and run with Ctrl+G
 
-![image](https://user-images.githubusercontent.com/50044415/160758201-5282c627-6ae1-4683-a0aa-b2c6430638c6.png)
+![image](https://user-images.githubusercontent.com/50044415/160758305-61e75a5c-0822-403b-815d-357a32a6f3e0.png)
 

